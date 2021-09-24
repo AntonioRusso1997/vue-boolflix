@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import Card from './Card.vue'
 export default {
   name: 'Main',
@@ -18,43 +17,8 @@ export default {
     Card
   },
   props: [
-    'myQuery'
-  ],
-  data() {
-    return {
-      ApiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=cb82868cc612f450b5181bdf14387c5b',
-      movieList: []
-    }
-  },
-  created() {
-    this.getList()
-  },
-  computed: {
-    filteredMovieList() {
-      if (this.myQuery === "") {
-        return this.movieList
-      }
-      let filteredList = this.getList()
-      return filteredList
-    }
-  },
-  watch: { 
-    myQuery: function() {
-      this.getList();
-      console.log("fdsgd")
-    }
-  },
-  methods: {
-    getList() {
-      axios
-        // console.log((this.ApiUrl + this.myQuery))
-        .get(this.ApiUrl + (this.myQuery ? '&query=' + this.myQuery : ''))
-        .then(res => {
-          console.log(res.data.results)
-          this.movieList = res.data.results
-        })
-    }
-  }
+    'movieList'
+  ]    
 }
 </script>
 

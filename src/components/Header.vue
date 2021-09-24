@@ -4,7 +4,7 @@
       <h2 class="fw-bold mt-2">BOOLFLIX</h2>
     </a>
     <div class="search-container d-flex">
-      <input v-model="inputText" class="form-control" type="search" placeholder="Cerca il tuo film preferito">
+      <input @keyup.enter="$emit('searchText', inputText)" v-model="inputText" class="form-control" type="search" placeholder="Cerca il tuo film preferito">
       <button @click.prevent="$emit('searchText', inputText)" type="submit" class="btn btn-danger">Cerca</button>
     </div>
 
