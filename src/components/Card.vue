@@ -1,11 +1,11 @@
 <template>
   <div>
     <ul class="list-group">
-      <li v-for="(movie, index) in movieList" :key="index" class="list-group-item">
-        <div class="card-info">Titolo: {{ movie.title }} </div>
-        <div class="card-info">Titolo Originale: {{ movie.original_title }}</div>
-        <div class="card-info">Lingua: {{ movie.original_language }}</div>
-        <div class="card-info">Voto: {{ movie.vote_average }}</div>
+      <li class="list-group-item">
+        <div class="card-info">Titolo: {{ info.title }} </div>
+        <div class="card-info">Titolo Originale: {{ info.original_title }}</div>
+        <div class="card-info">Lingua: {{ info.original_language }}</div>
+        <div class="card-info">Voto: {{ info.vote_average }}</div>
       </li>
     </ul>
   </div>
@@ -15,7 +15,8 @@
 export default {
   name: 'Card',
   props: [
-    'movieList'
+    'movieList',
+    'info'
   ]
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header />
-    <Main />
+    <Header @searchText="getInput"/>
+    <Main :myQuery="inputText"/>
   </div>
 </template>
 
@@ -14,6 +14,18 @@ export default {
   components: {
     Header,
     Main
+  },
+  data() {
+    return {
+      inputText:""
+    }
+  },
+  methods: {
+    getInput(text) {
+      this.inputText = text;
+      console.log(this.inputText)
+
+    }
   }
 }
 </script>
