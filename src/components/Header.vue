@@ -1,7 +1,7 @@
 <template>
   <header class="d-flex justify-content-between align-items-center px-5">
     <a href="/">
-      <h2>BOOLFLIX</h2>
+      <h2 class="mt-2">BOOLFLIX</h2>
     </a>
     <div class="search-container d-flex">
       <input class="form-control" type="search" placeholder="Cerca il tuo film preferito">
