@@ -28,6 +28,8 @@ export default {
         return "gb"
       } else if (language == "ja") {
         return "jp"
+      } else if (language == "zh") {
+        return "ch"
       }
       return language
     }
