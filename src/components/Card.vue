@@ -24,6 +24,11 @@ export default {
   ],
   methods: {
     getFlag (language) {
+      if (language == "en") {
+        return "gb"
+      } else if (language == "ja") {
+        return "jp"
+      }
       return language
     }
   }
