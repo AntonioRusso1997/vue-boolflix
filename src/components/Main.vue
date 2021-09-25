@@ -4,7 +4,7 @@
       <div class="col-2" v-for="(movie, index) in movieList" :key="index">
         <Card  
         :info="movie" :movieList="movieList" :key="index"/>
-    </div>
+      </div>
     </div>
   </main>
 </template>
