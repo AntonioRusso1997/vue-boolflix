@@ -2,6 +2,7 @@
   <div>
     <ul class="list-group">
       <li class="list-group-item">
+        <div class="card-image"> <img :src="imageUrl + infoTv.poster_path" alt=""> </div>
         <div class="card-info">Titolo: {{ infoTv.name }} </div>
         <div class="card-info">Titolo Originale: {{ infoTv.original_title }}</div>
         <div class="card-info">Lingua: <CountryFlag :country='getFlag(infoTv.original_language)'/></div>
@@ -22,6 +23,11 @@ export default {
     'tvList',
     'infoTv'    
   ],
+  data() {
+    return {
+      imageUrl: 'https://image.tmdb.org/t/p/original/'
+    }
+  },
   methods: {
     getFlag (language) {
       if (language == "en") {
@@ -39,5 +45,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  
+   .card-image {
+    img {
+      width: 100%;
+    }
+  }
 </style>

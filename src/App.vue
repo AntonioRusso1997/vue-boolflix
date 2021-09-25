@@ -28,7 +28,6 @@ export default {
       ApiKey: "?api_key=cb82868cc612f450b5181bdf14387c5b",
       movieList: [],
       tvList: []
-
     }
   },
   created() {
@@ -63,7 +62,7 @@ export default {
         // console.log((this.ApiUrl + this.myQuery))
         .get(this.ApiUrl + this.ApiMovie + this.ApiKey + (this.inputText ? '&query=' + this.inputText : ''))
         .then(res => {
-          console.log(res.data.results)
+          // console.log(res.data.results)
           this.movieList = res.data.results
         })
     },
@@ -71,10 +70,11 @@ export default {
       axios
         .get(this.ApiUrl + this.ApiSeries + this.ApiKey + (this.inputText ? '&query=' + this.inputText : ''))
         .then(res => {
-          console.log(res.data.results)
+          // console.log(res.data.results)
           this.tvList = res.data.results
         })
-    }
+    },
+    
   }
 }
 </script>
