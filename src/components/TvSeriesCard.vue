@@ -2,10 +2,10 @@
   <div>
     <ul class="list-group">
       <li class="list-group-item">
-        <div class="card-info">Titolo: {{ info.title }} </div>
-        <div class="card-info">Titolo Originale: {{ info.original_title }}</div>
-        <div class="card-info">Lingua: <CountryFlag :country='getFlag(info.original_language)' size='medium'/></div>
-        <div class="card-info">Voto: {{ info.vote_average }}</div>
+        <div class="card-info">Titolo: {{ infoTv.name }} </div>
+        <div class="card-info">Titolo Originale: {{ infoTv.original_title }}</div>
+        <div class="card-info">Lingua: <CountryFlag :country='getFlag(infoTv.original_language)'/></div>
+        <div class="card-info">Voto: {{ infoTv.vote_average }}</div>
       </li>
     </ul>
   </div>
@@ -19,8 +19,8 @@ export default {
     CountryFlag
   },
   props: [
-    'movieList',
-    'info'    
+    'tvList',
+    'infoTv'    
   ],
   methods: {
     getFlag (language) {
