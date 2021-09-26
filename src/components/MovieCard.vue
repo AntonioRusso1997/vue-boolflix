@@ -2,17 +2,18 @@
   <div>
     <ul class="list-group">
       <li class="list-group-item">
-        <div class="card-image"> <img :src="imageUrl + infoMovie.poster_path" alt=""> </div>
+        <div class="card-image"> <img :src="getPoster(infoMovie.poster_path)"> </div>
         <div class="card-info">Titolo: {{ infoMovie.title }} </div>
         <div class="card-info">Titolo Originale: {{ infoMovie.original_title }}</div>
         <div class="card-info">Lingua: <CountryFlag :country='getFlag(infoMovie.original_language)'/></div>
-        <div class="card-info">Voto: {{ infoMovie.vote_average }}</div>
+        <div class="card-info">Voto: {{ getVote(infoMovie.vote_average) }}</div>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import '@fortawesome/fontawesome-free/js/all.js';
 import CountryFlag from 'vue-country-flag'
 export default {
   name: 'Card',
@@ -26,7 +27,7 @@ export default {
   data() {
     return {
       imageUrl: 'https://image.tmdb.org/t/p/original/',
-      notFound: 'https://i.ibb.co/fGM9P8R/poster-not-avaiable.png'
+      notFound: 'https://i.ibb.co/fGM9P8R/poster-not-avaiable.png',
     }
   },
   methods: {
@@ -39,7 +40,19 @@ export default {
         return "ch"
       }
       return language
-    }
+    },
+    getPoster(path){
+      if (path != null) {
+        return this.imageUrl + path
+      } else {
+        return this.notFound
+      }
+    },
+    getVote(vote){
+      vote = vote / 2;
+      vote = Math.floor(vote);
+      return vote
+    },
   }
 }
 </script>
@@ -50,5 +63,7 @@ export default {
     img {
       width: 100%;
     }
+
+    
   }
 </style>

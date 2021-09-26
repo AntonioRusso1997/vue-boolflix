@@ -27,7 +27,7 @@ export default {
       ApiSeries: "tv",
       ApiKey: "?api_key=cb82868cc612f450b5181bdf14387c5b",
       movieList: [],
-      tvList: []
+      tvList: [],
     }
   },
   created() {
@@ -73,7 +73,7 @@ export default {
           // console.log(res.data.results)
           this.tvList = res.data.results
         })
-    },
+    }
     
   }
 }
