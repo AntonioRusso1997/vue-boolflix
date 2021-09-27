@@ -28,6 +28,7 @@ export default {
       ApiMovie: "movie",
       ApiSeries: "tv",
       ApiKey: "?api_key=cb82868cc612f450b5181bdf14387c5b",
+      language: "&language=it",
       movieList: [],
       tvList: [],
     }
@@ -82,7 +83,7 @@ export default {
     getListMovie() {
       axios
         // console.log((this.ApiUrl + this.myQuery))
-        .get(this.ApiUrl + this.ApiMovie + this.ApiKey + (this.inputText ? '&query=' + this.inputText : ''))
+        .get(this.ApiUrl + this.ApiMovie + this.ApiKey + (this.inputText ? '&query=' + this.inputText : '') + this.language)
         .then(res => {
           // console.log(res.data.results)
           this.movieList = res.data.results
@@ -90,7 +91,7 @@ export default {
     },
     getListTv() {
       axios
-        .get(this.ApiUrl + this.ApiSeries + this.ApiKey + (this.inputText ? '&query=' + this.inputText : ''))
+        .get(this.ApiUrl + this.ApiSeries + this.ApiKey + (this.inputText ? '&query=' + this.inputText : '') + this.language)
         .then(res => {
           // console.log(res.data.results)
           this.tvList = res.data.results
