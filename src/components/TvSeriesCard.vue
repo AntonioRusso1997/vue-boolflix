@@ -7,6 +7,7 @@
         <div class="card-info">Titolo Originale: {{ infoTv.original_title }}</div>
         <div class="card-info">Lingua: <CountryFlag :country='getFlag(infoTv.original_language)'/></div>
         <div class="card-info"><span>Voto:</span> {{ getVote(infoTv.vote_average) }}</div>
+        <!-- <i class="fas fa-star"></i> -->
       </li>
     </ul>
     

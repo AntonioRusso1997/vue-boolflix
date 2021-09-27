@@ -23,6 +23,8 @@ export default {
       inputText:"",
       // ApiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=cb82868cc612f450b5181bdf14387c5b',
       ApiUrl: 'https://api.themoviedb.org/3/search/',
+      ApiUrlPopularMovie: 'https://api.themoviedb.org/3/movie/popular?api_key=cb82868cc612f450b5181bdf14387c5b&language=it-US&page=1',
+      ApiUrlPopularSeries: 'https://api.themoviedb.org/3/tv/popular?api_key=cb82868cc612f450b5181bdf14387c5b&language=it-US&page=1',
       ApiMovie: "movie",
       ApiSeries: "tv",
       ApiKey: "?api_key=cb82868cc612f450b5181bdf14387c5b",
@@ -31,6 +33,8 @@ export default {
     }
   },
   created() {
+    this.getfirstPageMovie()
+    this.getfirstPageSeries()
     this.getListMovie()
     this.getListTv()
   },
@@ -56,6 +60,24 @@ export default {
       console.log(this.inputText)
       this.getListMovie()
       this.getListTv()
+    },
+    getfirstPageMovie() {
+      axios
+        // console.log((this.ApiUrl + this.myQuery))
+        .get(this.ApiUrlPopularMovie)
+        .then(res => {
+          // console.log(res.data.results)
+          this.movieList = res.data.results
+        })
+    },
+    getfirstPageSeries() {
+      axios
+        // console.log((this.ApiUrl + this.myQuery))
+        .get(this.ApiUrlPopularSeries)
+        .then(res => {
+          // console.log(res.data.results)
+          this.tvList = res.data.results
+        })
     },
     getListMovie() {
       axios
