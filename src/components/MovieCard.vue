@@ -9,7 +9,7 @@
           <div class="card-info"><b>Titolo:</b> {{ infoMovie.title }}</div>
           <div class="card-info"><b>Titolo Originale:</b> {{ infoMovie.original_title }}</div>
           <div class="card-info"><b>Lingua:</b> <CountryFlag :country='getFlag(infoMovie.original_language)'/></div>
-          <div class="card-info"><b>Voto:</b> {{ getVote(infoMovie.vote_average) }}</div>
+          <div class="card-info"><b>Voto:</b> <span class="gold" v-html="getVote(infoMovie.vote_average)"></span> </div>
           <div class="card-info"><b>Overview:</b> {{ infoMovie.overview }} <div class="ellipsis">...</div></div>
         </div>
       </div>
@@ -56,7 +56,11 @@ export default {
     getVote(vote){
       vote = vote / 2;
       vote = Math.floor(vote);
-      return vote
+      let finalVote = '';
+      for(let i = 0; i < vote; i++){
+        finalVote += '<i class="fas fa-star"></i>';
+      }
+      return finalVote
     },
   }
 }
@@ -64,6 +68,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import '../style/vars';
 
   .flip-card {
   background-color: transparent;
@@ -120,7 +125,7 @@ export default {
       }
       &:nth-child(3) {
         display: flex;
-        align-items: center;      
+        align-items: center;
       }
     }
 }   
